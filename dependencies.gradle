@@ -1,0 +1,26 @@
+/**
+ * Bu kısımda, Json object mantığı ile bağımlılıklara ait Ad ve Versiyon
+ * bilgileri export ediliyor.
+ */
+ext {
+    /**
+     * Burada bağımlılıklarımıza ait versiyonları tek bir çatıda toplarayak
+     * buradan yönetilmelerini sağlıyoruz.
+     */
+    versions = [
+            springBoot          : "2.7.10"
+    ]
+    /**
+     * Bağımılılkların yazımı, mevcut kullanıma ek olarak şu şekilde yazılabilir.
+     * 1. Bağımlılığım grup adı yazılı. (grupId)
+     * 2. : eklenir.
+     * 3. Bağımlılık adı. (artifactId)
+     * 4. : eklenir.
+     * 5. bağılığın versiyonu yönetim olarak eklediğimiz listeden çekilir. bu aşamade
+     * $versions.XXXXX şeklinde yazılmalıdır.
+     */
+    libs = [
+            springBootWeb           : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
+
+    ]
+}

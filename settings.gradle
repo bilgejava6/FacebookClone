@@ -1,0 +1,6 @@
+rootProject.name = 'FacebookClone'
+include 'AuthService'
+include 'UserService'
+include 'PostService'
+include 'ChatService'
+
