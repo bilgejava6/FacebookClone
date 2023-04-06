@@ -1,4 +1,4 @@
-package com.muhammet.service;
+package com.muhammet.utility;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

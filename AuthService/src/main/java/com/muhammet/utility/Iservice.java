@@ -1,4 +1,4 @@
-package com.muhammet.service;
+package com.muhammet.utility;
 
 import java.util.List;
 import java.util.Optional;
