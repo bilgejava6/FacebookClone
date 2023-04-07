@@ -9,6 +9,7 @@ ext {
      */
     versions = [
             springBoot          : "2.7.10",
+            springCloud         : "3.1.6",
             lombok              : "1.18.26",
             postgresql          : "42.6.0",
             swagger             : "1.6.15",
@@ -32,7 +33,7 @@ ext {
             swagger                 : "org.springdoc:springdoc-openapi-ui:${versions.swagger}",
             mapstruct               : "org.mapstruct:mapstruct:${versions.mapstruct}",
             mapstructProcessor      : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
-
+            springCloudOpenFeign    : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}"
 
     ]
 }
