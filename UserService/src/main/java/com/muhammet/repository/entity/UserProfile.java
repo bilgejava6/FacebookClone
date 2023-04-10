@@ -1,20 +1,19 @@
 package com.muhammet.repository.entity;
 
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Entity
-@Table(name = "tbluserprofile")
+@Document
 public class UserProfile {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    String id;
     Long authid;
     String username;
     String email;
@@ -23,6 +22,5 @@ public class UserProfile {
     String phone;
     String address;
     String avatar;
-    @Enumerated(EnumType.STRING)
     Gender gender;
 }
