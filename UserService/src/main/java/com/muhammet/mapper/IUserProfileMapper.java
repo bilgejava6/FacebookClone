@@ -1,6 +1,7 @@
 package com.muhammet.mapper;
 
 import com.muhammet.dto.request.UserProfileSaveRequestDto;
+import com.muhammet.dto.request.UserProfileUpdateRequestDto;
 import com.muhammet.repository.entity.UserProfile;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mappings;
@@ -12,4 +13,6 @@ public interface IUserProfileMapper {
     IUserProfileMapper INSTANCE = Mappers.getMapper(IUserProfileMapper.class);
 
     UserProfile toUserProfile(final UserProfileSaveRequestDto dto);
+
+    UserProfile toUserProfile(UserProfile userProfile, final UserProfileUpdateRequestDto dto);
 }
