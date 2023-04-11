@@ -6,21 +6,26 @@ import com.muhammet.dto.response.LoginResponseDto;
 import com.muhammet.dto.response.RegisterResponseDto;
 import com.muhammet.exception.AuthException;
 import com.muhammet.exception.ErrorType;
+import com.muhammet.repository.entity.Auth;
 import com.muhammet.service.AuthService;
+import com.muhammet.utility.TokenCreator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
+    private final TokenCreator tokenCreator;
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> login(@RequestBody @Valid LoginRequestDto dto){
-        if(!authService.doLogin(dto))
+        Optional<Auth> auth = authService.doLogin(dto);
+        if(auth.isEmpty())
             return ResponseEntity.ok(LoginResponseDto.builder()
                             .statusCode(4000)
                             .message("Kullanıcı adı veya şifre hatalı")
@@ -28,7 +33,7 @@ public class AuthController {
 
         return ResponseEntity.ok(LoginResponseDto.builder()
                         .statusCode(2001)
-                        .message("Giriş işlemi başarılı")
+                        .message(tokenCreator.createToken(auth.get().getId()))
                 .build());
     }
 
