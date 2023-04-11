@@ -1,15 +1,15 @@
 package com.muhammet.controller;
 
 import com.muhammet.dto.request.UserProfileSaveRequestDto;
+import com.muhammet.dto.request.UserProfileUpdateRequestDto;
+import com.muhammet.repository.entity.UserProfile;
 import com.muhammet.service.UserProfileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/userprofile")
@@ -22,4 +22,16 @@ public class UserProfileController {
         userProfileService.save(dto);
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/update")
+    public ResponseEntity<Void> update(@RequestBody @Valid UserProfileUpdateRequestDto dto){
+        userProfileService.update(dto);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/findall")
+    public ResponseEntity<List<UserProfile>> findAll(){
+        return ResponseEntity.ok(userProfileService.findAll());
+    }
+
 }
