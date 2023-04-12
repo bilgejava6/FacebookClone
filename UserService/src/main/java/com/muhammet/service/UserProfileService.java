@@ -7,6 +7,7 @@ import com.muhammet.exception.UserException;
 import com.muhammet.mapper.IUserProfileMapper;
 import com.muhammet.repository.IUserProfileRepository;
 import com.muhammet.repository.entity.UserProfile;
+import com.muhammet.utility.JwtTokenManager;
 import com.muhammet.utility.ServiceManager;
 import com.muhammet.utility.TokenCreator;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,12 @@ import java.util.Optional;
 @Service
 public class UserProfileService extends ServiceManager<UserProfile,String> {
     private final IUserProfileRepository repository;
-    private final TokenCreator tokenCreator;
+    private final JwtTokenManager jwtTokenManager;
     public UserProfileService(IUserProfileRepository repository,
-                              TokenCreator tokenCreator) {
+                              JwtTokenManager jwtTokenManager) {
         super(repository);
         this.repository=repository;
-        this.tokenCreator=tokenCreator;
+        this.jwtTokenManager=jwtTokenManager;
     }
 
     public void save(UserProfileSaveRequestDto dto){
@@ -29,7 +30,7 @@ public class UserProfileService extends ServiceManager<UserProfile,String> {
     }
 
     public void update(UserProfileUpdateRequestDto dto){
-        Optional<Long> authid = tokenCreator.getAuthId(dto.getToken());
+        Optional<Long> authid = jwtTokenManager.getIdFromToken(dto.getToken());
         if(authid.isEmpty())
             throw new UserException(ErrorType.ERROR_INVALID_TOKEN);
         Optional<UserProfile> userProfile = repository.findOptionalByAuthid(authid.get());

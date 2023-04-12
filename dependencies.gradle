@@ -13,7 +13,8 @@ ext {
             lombok              : "1.18.26",
             postgresql          : "42.6.0",
             swagger             : "1.6.15",
-            mapstruct           : "1.5.3.Final"
+            mapstruct           : "1.5.3.Final",
+            javaJWT             : "4.4.0",
     ]
     /**
      * Bağımılılkların yazımı, mevcut kullanıma ek olarak şu şekilde yazılabilir.
@@ -34,7 +35,7 @@ ext {
             swagger                 : "org.springdoc:springdoc-openapi-ui:${versions.swagger}",
             mapstruct               : "org.mapstruct:mapstruct:${versions.mapstruct}",
             mapstructProcessor      : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
-            springCloudOpenFeign    : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}"
-
+            springCloudOpenFeign    : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
+            javaJWT                 : "com.auth0:java-jwt:${versions.javaJWT}",
     ]
 }

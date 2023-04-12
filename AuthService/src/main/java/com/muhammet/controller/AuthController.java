@@ -8,6 +8,7 @@ import com.muhammet.exception.AuthException;
 import com.muhammet.exception.ErrorType;
 import com.muhammet.repository.entity.Auth;
 import com.muhammet.service.AuthService;
+import com.muhammet.utility.JwtTokenManager;
 import com.muhammet.utility.TokenCreator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
-    private final TokenCreator tokenCreator;
+    private final JwtTokenManager jwtTokenManager;
+
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> login(@RequestBody @Valid LoginRequestDto dto){
         Optional<Auth> auth = authService.doLogin(dto);
@@ -33,7 +35,7 @@ public class AuthController {
 
         return ResponseEntity.ok(LoginResponseDto.builder()
                         .statusCode(2001)
-                        .message(tokenCreator.createToken(auth.get().getId()))
+                        .message(jwtTokenManager.createToken(auth.get().getId()).get())
                 .build());
     }
 

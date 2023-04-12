@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @Builder
 public class UserProfileUpdateRequestDto {
     @NotEmpty
-    @Size(min = 5, max = 255)
+    @Size(min = 5)
     String token;
     String name;
     String surname;

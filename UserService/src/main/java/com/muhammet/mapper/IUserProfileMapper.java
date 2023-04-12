@@ -14,5 +14,5 @@ public interface IUserProfileMapper {
 
     UserProfile toUserProfile(final UserProfileSaveRequestDto dto);
 
-    UserProfile toUserProfile(UserProfile userProfile, final UserProfileUpdateRequestDto dto);
+    UserProfile toUserProfile( final UserProfileUpdateRequestDto dto);
 }
