@@ -26,16 +26,23 @@ ext {
      * $versions.XXXXX şeklinde yazılmalıdır.
      */
     libs = [
+            // Spring Boot
             springBootWeb           : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
             springBootDataJpa       : "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBoot}",
             springBootDataMongoDB   : "org.springframework.boot:spring-boot-starter-data-mongodb:${versions.springBoot}",
             springBootValidation    : "org.springframework.boot:spring-boot-starter-validation:${versions.springBoot}",
+            // Spring Cloud
+            springCloudOpenFeign    : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
+            springCloudStarterConfig: "org.springframework.cloud:spring-cloud-starter-config:${versions.springCloud}",
+            springCloudConfigServer : "org.springframework.cloud:spring-cloud-config-server:${versions.springCloud}",
+            springCloudConfigClient : "org.springframework.cloud:spring-cloud-config-client:${versions.springCloud}",
+
+            // Other
             lombok                  : "org.projectlombok:lombok:${versions.lombok}",
             postgresql              : "org.postgresql:postgresql:${versions.postgresql}",
             swagger                 : "org.springdoc:springdoc-openapi-ui:${versions.swagger}",
             mapstruct               : "org.mapstruct:mapstruct:${versions.mapstruct}",
             mapstructProcessor      : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
-            springCloudOpenFeign    : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
             javaJWT                 : "com.auth0:java-jwt:${versions.javaJWT}",
     ]
 }
