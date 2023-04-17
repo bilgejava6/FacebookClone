@@ -5,4 +5,5 @@ include 'PostService'
 include 'ChatService'
 include 'ConfigServer'
 include 'ConfigServerGit'
+include 'ApiGatewayService'
 

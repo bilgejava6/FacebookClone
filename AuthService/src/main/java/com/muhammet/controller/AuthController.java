@@ -18,11 +18,20 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
     private final JwtTokenManager jwtTokenManager;
+
+    /**
+     * http://localhost:9090/api/v1/auth/getpage
+     * @return
+     */
+    @GetMapping("/getpage")
+    public ResponseEntity<String> getPage(){
+        return ResponseEntity.ok("Auth Service Ulaştınız.");
+    }
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> login(@RequestBody @Valid LoginRequestDto dto){

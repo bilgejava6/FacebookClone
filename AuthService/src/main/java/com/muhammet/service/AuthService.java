@@ -7,6 +7,8 @@ import com.muhammet.exception.AuthException;
 import com.muhammet.exception.ErrorType;
 import com.muhammet.manager.IUserProfileManager;
 import com.muhammet.mapper.IAuthMapper;
+import com.muhammet.rabbitmq.model.CreateUserModel;
+import com.muhammet.rabbitmq.producer.CreateUserProducer;
 import com.muhammet.repository.IAuthRepository;
 import com.muhammet.repository.entity.Auth;
 import com.muhammet.utility.ServiceManager;
@@ -18,11 +20,14 @@ import java.util.Optional;
 public class AuthService extends ServiceManager<Auth,Long> {
     private final IAuthRepository repository;
     private final IUserProfileManager userProfileManager;
+    private final CreateUserProducer createUserProducer;
     public AuthService(IAuthRepository repository,
-                       IUserProfileManager userProfileManager){
+                       IUserProfileManager userProfileManager,
+                       CreateUserProducer createUserProducer){
         super(repository);
         this.repository = repository;
         this.userProfileManager = userProfileManager;
+        this.createUserProducer = createUserProducer;
     }
 
     public Optional<Auth> doLogin(LoginRequestDto dto){
@@ -55,7 +60,12 @@ public class AuthService extends ServiceManager<Auth,Long> {
          * verdiğimiz parameterleri iletişime geçeceğimiz UserProfile servisinin save mthoduna
          * jsonObject olarak gönderir ve böylece o save methosunun çalışmasınu sağlar.
          */
-        userProfileManager.save(requestDto);
+//        userProfileManager.save(requestDto);
+         createUserProducer.converAndSendData(CreateUserModel.builder()
+                         .authid(auth.getId())
+                         .email(auth.getEmail())
+                         .username(auth.getUsername())
+                 .build());
     }
 
 

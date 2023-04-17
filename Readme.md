@@ -51,4 +51,12 @@
     })
     -- db.createUser({user: "Java7User",pwd: "root",roles: ["readWrite", "dbAdmin"]})
 
+##  3. RabbitMQ Kurulum ve Kullanım
+
+    ### 3.1. RabbitMQ Docker üzerinde çalıştırmak
+    docker run -d --name my-rabbitmq -e RABBITMQ_DEFAULT_USER=java7 -e RABBITMQ_DEFAULT_PASS=root -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+
+    ### 3.2. RabbitMQ ye bağlanmak
+    gradle import -> org.springframework.boot:spring-boot-starter-amqp:VERSION
+    Rabbit Config yapılandırılır ve kuyruk yapısı tanımlanır.
 

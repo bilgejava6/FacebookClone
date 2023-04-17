@@ -12,10 +12,16 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/userprofile")
+@RequestMapping("/api/v1/userprofile")
 @RequiredArgsConstructor
 public class UserProfileController {
     private final UserProfileService userProfileService;
+
+    @GetMapping("/getpage")
+    public ResponseEntity<String> getPage(){
+        return ResponseEntity.ok("User Service Ulaştınız.");
+    }
+
 
     @PostMapping("/save")
     public ResponseEntity<Void> save(@RequestBody @Valid UserProfileSaveRequestDto dto){
