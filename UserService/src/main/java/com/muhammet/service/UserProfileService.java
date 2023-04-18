@@ -5,6 +5,7 @@ import com.muhammet.dto.request.UserProfileUpdateRequestDto;
 import com.muhammet.exception.ErrorType;
 import com.muhammet.exception.UserException;
 import com.muhammet.mapper.IUserProfileMapper;
+import com.muhammet.rabbitmq.model.CreateUserModel;
 import com.muhammet.repository.IUserProfileRepository;
 import com.muhammet.repository.entity.UserProfile;
 import com.muhammet.utility.JwtTokenManager;
@@ -27,6 +28,10 @@ public class UserProfileService extends ServiceManager<UserProfile,String> {
 
     public void save(UserProfileSaveRequestDto dto){
        save(IUserProfileMapper.INSTANCE.toUserProfile(dto));
+    }
+
+    public void save(CreateUserModel model){
+        save(IUserProfileMapper.INSTANCE.toUserProfile(model));
     }
 
     public void update(UserProfileUpdateRequestDto dto){

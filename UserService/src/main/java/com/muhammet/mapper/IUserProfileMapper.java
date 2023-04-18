@@ -2,6 +2,7 @@ package com.muhammet.mapper;
 
 import com.muhammet.dto.request.UserProfileSaveRequestDto;
 import com.muhammet.dto.request.UserProfileUpdateRequestDto;
+import com.muhammet.rabbitmq.model.CreateUserModel;
 import com.muhammet.repository.entity.UserProfile;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mappings;
@@ -15,4 +16,6 @@ public interface IUserProfileMapper {
     UserProfile toUserProfile(final UserProfileSaveRequestDto dto);
 
     UserProfile toUserProfile( final UserProfileUpdateRequestDto dto);
+
+    UserProfile toUserProfile(final CreateUserModel model);
 }
