@@ -40,4 +40,11 @@ public class UserProfileController {
         return ResponseEntity.ok(userProfileService.findAll());
     }
 
+
+    @GetMapping("/getnametoupper")
+    public ResponseEntity<String> getNameToUpper(String name){
+        return ResponseEntity.ok(userProfileService.getNameToUpper(name));
+    }
+
+
 }

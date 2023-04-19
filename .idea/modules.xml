@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ApiGatewayService/FacebookClone.ApiGatewayService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ApiGatewayService/FacebookClone.ApiGatewayService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AuthService/FacebookClone.AuthService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AuthService/FacebookClone.AuthService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ConfigServer/FacebookClone.ConfigServer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ConfigServer/FacebookClone.ConfigServer.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ConfigServerGit/FacebookClone.ConfigServerGit.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ConfigServerGit/FacebookClone.ConfigServerGit.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/UserService/FacebookClone.UserService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/UserService/FacebookClone.UserService.main.iml" />
     </modules>
   </component>

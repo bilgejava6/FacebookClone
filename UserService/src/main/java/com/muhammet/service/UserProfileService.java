@@ -11,6 +11,7 @@ import com.muhammet.repository.entity.UserProfile;
 import com.muhammet.utility.JwtTokenManager;
 import com.muhammet.utility.ServiceManager;
 import com.muhammet.utility.TokenCreator;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -49,5 +50,15 @@ public class UserProfileService extends ServiceManager<UserProfile,String> {
             profile.setSurname(dto.getSurname());
             update(profile);
         }
+    }
+
+    @Cacheable(value = "getnametoupper")
+    public String getNameToUpper(String name){
+        try{
+            Thread.sleep(3000);
+        }catch (Exception ex){
+
+        }
+        return name.toUpperCase();
     }
 }

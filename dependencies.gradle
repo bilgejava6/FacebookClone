@@ -30,6 +30,7 @@ ext {
             springBootWeb           : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
             springBootDataJpa       : "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBoot}",
             springBootDataMongoDB   : "org.springframework.boot:spring-boot-starter-data-mongodb:${versions.springBoot}",
+            springBootDataRedis     : "org.springframework.boot:spring-boot-starter-data-redis:${versions.springBoot}",
             springBootValidation    : "org.springframework.boot:spring-boot-starter-validation:${versions.springBoot}",
             springBootAmqp          : "org.springframework.boot:spring-boot-starter-amqp:${versions.springBoot}",
 
@@ -39,6 +40,9 @@ ext {
             springCloudConfigServer : "org.springframework.cloud:spring-cloud-config-server:${versions.springCloud}",
             springCloudConfigClient : "org.springframework.cloud:spring-cloud-config-client:${versions.springCloud}",
             springCloudGateway      : "org.springframework.cloud:spring-cloud-starter-gateway:${versions.springCloud}",
+            springCloudSleuth       : "org.springframework.cloud:spring-cloud-starter-sleuth:${versions.springCloud}",
+            springCloudZipkin       : "org.springframework.cloud:spring-cloud-sleuth-zipkin:${versions.springCloud}",
+
             // Other
             lombok                  : "org.projectlombok:lombok:${versions.lombok}",
             postgresql              : "org.postgresql:postgresql:${versions.postgresql}",

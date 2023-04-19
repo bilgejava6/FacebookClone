@@ -45,6 +45,9 @@ allprojects{
         annotationProcessor libs.mapstructProcessor
         implementation libs.springCloudOpenFeign
         implementation libs.javaJWT
+        implementation libs.springCloudSleuth
+        implementation libs.springCloudZipkin
+
     }
 }
 

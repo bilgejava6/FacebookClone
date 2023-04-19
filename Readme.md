@@ -60,3 +60,33 @@
     gradle import -> org.springframework.boot:spring-boot-starter-amqp:VERSION
     Rabbit Config yapılandırılır ve kuyruk yapısı tanımlanır.
 
+## 4. Zipkin Server kurmak ve Kullanmak
+
+    docker run --name zipkinfb -d -p 9411:9411 openzipkin/zipkin
+    
+    Zipkin için gerekli bağımlılılar:    
+    'org.springframework.cloud:spring-cloud-starter-sleuth:3.1.7'
+    'org.springframework.cloud:spring-cloud-sleuth-zipkin:3.1.7'
+
+    application.yml içine eklenilecek kodlar:
+    zipkin:
+        enabled: true
+        base-url: http://localhost:9411
+        service:
+          name: config-server
+
+## 5. Redis Kurulum ve Kullanım
+
+    docker run --name localredis -d -p 6379:6379 redis
+
+    Redis için gerekli bağımlılılar:
+    'org.springframework.boot:spring-boot-starter-data-redis:$VERSION'
+
+    Redis için bağlantı kodlamalarını yapmakmız gerekli:
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+
+        return new LettuceConnectionFactory(
+                new RedisStandaloneConfiguration("localhost", 6379));
+    }
+
