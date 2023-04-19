@@ -11,6 +11,7 @@ import com.muhammet.repository.entity.UserProfile;
 import com.muhammet.utility.JwtTokenManager;
 import com.muhammet.utility.ServiceManager;
 import com.muhammet.utility.TokenCreator;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -60,5 +61,10 @@ public class UserProfileService extends ServiceManager<UserProfile,String> {
 
         }
         return name.toUpperCase();
+    }
+
+    @CacheEvict(value = "getnametoupper",allEntries = true)
+    public void clearCacheToUpper(){
+        System.out.println("Tüm cache i temizledim");
     }
 }

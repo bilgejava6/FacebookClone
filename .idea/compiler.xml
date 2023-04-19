@@ -10,6 +10,7 @@
         </processorPath>
         <module name="FacebookClone.ConfigServerGit.main" />
         <module name="FacebookClone.PostService.main" />
+        <module name="FacebookClone.ElasticService.main" />
         <module name="FacebookClone.ApiGatewayService.main" />
         <module name="FacebookClone.ConfigServer.main" />
         <module name="FacebookClone.main" />

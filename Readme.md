@@ -90,3 +90,14 @@
                 new RedisStandaloneConfiguration("localhost", 6379));
     }
 
+## 6. ElasticSearch Kurulum ve Kullanım
+
+    DİKKAT!!!
+    Spring ile kullanımında sürüm önemlidir. Hangi Spring boot sürümünü
+    kullandıysanız ona uygun bir ElasticSearch sürümü kullanmalısınız.
+
+    1- docker network create somenetwork
+    2- docker run -d --name elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e ES_JAVA_OPTS="-Xms512m -Xmx2048m" -e "discovery.type=single-node" elasticsearch:7.17.9
+
+    ElasticSearch için gerekli bağımlılılar:
+    'org.springframework.boot:spring-boot-starter-data-elasticsearch:$VERSION'

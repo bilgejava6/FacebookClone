@@ -46,5 +46,10 @@ public class UserProfileController {
         return ResponseEntity.ok(userProfileService.getNameToUpper(name));
     }
 
+    @GetMapping("/clearcache")
+    public ResponseEntity<Void> clearCache(){
+        userProfileService.clearCacheToUpper();
+        return ResponseEntity.ok().build();
+    }
 
 }
