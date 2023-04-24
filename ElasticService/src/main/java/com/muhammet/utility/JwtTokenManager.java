@@ -19,8 +19,8 @@ public class JwtTokenManager {
      * Bu anahtar bilgisinin açık bir şekilde kod içinde var oolması bir güvenlik açığıdır. Anahtarın
      * kod içinden alınarak ENV şeklinde başka bir repo üzerinden erişilebilir olması daha güvenli olacaktır.
      */
-    @Value("${my-application.jwt.secret-key}")
-    private String secretKey;
+//    @Value("${my-application.jwt.secret-key}")
+//    private String secretKey;
     private final String sifreAnahtari = "wr@M=dU4rur8splp0LvuPR_bEThutusT&q9ni3restaNlH-kOgab&wIFRobraspi"; // 80*80*80 -> 80^64
 
     private Long exDate = 1000L * 60 * 2; // 2 dakika
