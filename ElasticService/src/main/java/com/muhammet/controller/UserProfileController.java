@@ -4,6 +4,7 @@ import com.muhammet.dto.request.UserProfileDto;
 import com.muhammet.repository.entity.UserProfile;
 import com.muhammet.service.UserProfileService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,4 +28,9 @@ public class UserProfileController {
         return ResponseEntity.ok(userProfileService.findAll());
     }
 
+
+    @GetMapping("/findallpage")
+    public ResponseEntity<Page<UserProfile>> findAll(int currentPage,int size, String sortParameter,String sortDirection){
+        return ResponseEntity.ok(userProfileService.findAll(currentPage,size,sortParameter,sortDirection));
+    }
 }
