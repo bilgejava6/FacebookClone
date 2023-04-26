@@ -34,6 +34,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<LoginResponseDto> login(@RequestBody @Valid LoginRequestDto dto){
         Optional<Auth> auth = authService.doLogin(dto);
         if(auth.isEmpty())
@@ -49,6 +50,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<RegisterResponseDto> register(@RequestBody @Valid RegisterRequestDto dto){
         if(!dto.getPassword().equals(dto.getRepassowrd()))
             throw new AuthException(ErrorType.ERROR_PASSWORD);
