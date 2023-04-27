@@ -1,7 +1,9 @@
 package com.muhammet.controller;
 
+import com.muhammet.dto.request.GetMyProfileRequestDto;
 import com.muhammet.dto.request.UserProfileSaveRequestDto;
 import com.muhammet.dto.request.UserProfileUpdateRequestDto;
+import com.muhammet.dto.response.GetMyProfileResponseDto;
 import com.muhammet.repository.entity.UserProfile;
 import com.muhammet.service.UserProfileService;
 import lombok.RequiredArgsConstructor;
@@ -40,6 +42,11 @@ public class UserProfileController {
         return ResponseEntity.ok(userProfileService.findAll());
     }
 
+    @PostMapping("/getmyprofile")
+    @CrossOrigin("*")
+    public ResponseEntity<GetMyProfileResponseDto> getMyProfile(@RequestBody @Valid GetMyProfileRequestDto dto){
+        return ResponseEntity.ok(userProfileService.getMyProfile(dto));
+    }
 
     @GetMapping("/getnametoupper")
     public ResponseEntity<String> getNameToUpper(String name){

@@ -1,7 +1,9 @@
 package com.muhammet.service;
 
+import com.muhammet.dto.request.GetMyProfileRequestDto;
 import com.muhammet.dto.request.UserProfileSaveRequestDto;
 import com.muhammet.dto.request.UserProfileUpdateRequestDto;
+import com.muhammet.dto.response.GetMyProfileResponseDto;
 import com.muhammet.exception.ErrorType;
 import com.muhammet.exception.UserException;
 import com.muhammet.mapper.IUserProfileMapper;
@@ -66,5 +68,20 @@ public class UserProfileService extends ServiceManager<UserProfile,String> {
     @CacheEvict(value = "getnametoupper",allEntries = true)
     public void clearCacheToUpper(){
         System.out.println("Tüm cache i temizledim");
+    }
+
+    public GetMyProfileResponseDto getMyProfile(GetMyProfileRequestDto dto) {
+        Optional<Long> authid = jwtTokenManager.getIdFromToken(dto.getToken());
+        if(authid.isEmpty())
+            throw new UserException(ErrorType.ERROR_INVALID_TOKEN);
+        Optional<UserProfile> userProfile = repository.findOptionalByAuthid(authid.get());
+        if(userProfile.isEmpty())
+            throw new UserException(ErrorType.ERROR_NOT_FOUND_USERNAME);
+        return GetMyProfileResponseDto.builder()
+                .about(userProfile.get().getPhone())
+                .avatar(userProfile.get().getAvatar())
+                .name(userProfile.get().getName()+" "+userProfile.get().getSurname())
+                .username(userProfile.get().getUsername())
+                .build();
     }
 }
