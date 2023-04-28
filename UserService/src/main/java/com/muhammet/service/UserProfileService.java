@@ -84,4 +84,11 @@ public class UserProfileService extends ServiceManager<UserProfile,String> {
                 .username(userProfile.get().getUsername())
                 .build();
     }
+
+    public UserProfile getOtherProfile(GetMyProfileRequestDto dto) {
+        Optional<UserProfile> userProfile = findById(dto.getUserid());
+        if(userProfile.isEmpty())
+            throw new UserException(ErrorType.ERROR_NOT_FOUND_USERNAME);
+        return userProfile.get();
+    }
 }

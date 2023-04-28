@@ -48,6 +48,12 @@ public class UserProfileController {
         return ResponseEntity.ok(userProfileService.getMyProfile(dto));
     }
 
+    @PostMapping("/getotherprofile")
+    @CrossOrigin("*")
+    public ResponseEntity<UserProfile> getOtherProfile(@RequestBody @Valid GetMyProfileRequestDto dto){
+        return ResponseEntity.ok(userProfileService.getOtherProfile(dto));
+    }
+
     @GetMapping("/getnametoupper")
     public ResponseEntity<String> getNameToUpper(String name){
         return ResponseEntity.ok(userProfileService.getNameToUpper(name));
