@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -12,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class GetPostResponseDto {
     String useravatar;
     String username;
-    String posturl;
+    List<String> posturls;
     int likecount;
     String sharedtime;
     String posttext;

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AuthService/FacebookClone.AuthService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AuthService/FacebookClone.AuthService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ConfigServer/FacebookClone.ConfigServer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ConfigServer/FacebookClone.ConfigServer.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ElasticService/FacebookClone.ElasticService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ElasticService/FacebookClone.ElasticService.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PostService/FacebookClone.PostService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/PostService/FacebookClone.PostService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/UserService/FacebookClone.UserService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/UserService/FacebookClone.UserService.main.iml" />
     </modules>
   </component>
