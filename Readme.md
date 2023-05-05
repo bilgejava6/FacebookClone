@@ -101,3 +101,36 @@
 
     ElasticSearch için gerekli bağımlılılar:
     'org.springframework.boot:spring-boot-starter-data-elasticsearch:$VERSION'
+
+## 7. Projenin Docker image olarak oluşturulması
+
+    Herhangi bir projenin paket haline getirilmesi için öncelikle
+    1- Gradle -> [Projenin Adı ] -> Tasks -> build -> build
+    2- Gradle -> [Projenin Adı ] -> Tasks -> build -> buildDependents
+    bu iki adımdan sonra projenin altında build klasörü oluşur bu klasöt
+    içerisinde jar dosyası oluşur. build->libs-> [Projenin Adı].jar
+
+### 7.1 Dockerfile
+
+    Dockerfile bir docker image oluşturmak için kullanılan özel 
+    bir dosyadır. bunun içinde ihtiyaç duyulan tüm komutlar yer alır.
+    bu komutlar ile microservisimizin çalışması için gerekli olan 
+    parametreler ve bağımlılıklar belirtilir.
+````
+    # İşletim sistemi ve Java JDK eklenir.
+    # FROM amazoncorretto:17 -- amazon corretto ile java jdk17 sürümü kullanılacak demektir.
+    FROM azul/zulu-openjdk-alpine:17.0.7
+    # build aldığımız jar dosyasını docker imajımızın içine kopyalıyoruz.
+    COPY ConfigServerGit/build/libs/ConfigServerGit-v.1.0.jar app.jar
+    # docker imajımızın çalışması için java uygulamamızı tetikliyoruz.
+    ENTRYPOINT ["java","-jar","/app.jar"]
+````
+## Docker Imaje oluşturmak
+    DİKKAT!!!!
+    Docker image oluştururken docker.hub üzerindeki repoya önderilmek istenilen 
+    image lar için isimlendirmeyi doğru yapmanız gereklidir. 
+    hub.docker repo adınız / image adınız : versiyon numarası
+    şeklinde yazmanız gereklidir.
+    DİKKAT!!!! 
+    ifade sonunda olan nokta (.) unutulmamalıdır. rastgele bir nokta değildir.
+    docker build -t javaboost2/java7-configservergit:v.1.0 .
