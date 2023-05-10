@@ -22,6 +22,7 @@ spring:
 
 
 my-application:
+  redis-host: localhost
   jwt:
     secret-key: "wr@M=dU4rur8splp0LvuPR_bEThutusT&q9ni3restaNlH-kOgab&wIFRobraspi"
     secret-key-env: ${SECRETKEY}

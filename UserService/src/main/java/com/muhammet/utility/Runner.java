@@ -21,7 +21,7 @@ public class Runner {
      * method bu sınıf tan bir nesne oluşturulurken çalışır. böylece
      * spring uygulaması ayağa kalkarken bu method çalışır.
      */
-    @PostConstruct
+    ///@PostConstruct
     public void init(){
         userProfileService.findAll().forEach(x->{
             elasticServiceManager.save(x);

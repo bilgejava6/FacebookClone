@@ -14,7 +14,7 @@ spring:
     password: root
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/FacebookAuthDB
+    url: jdbc:postgresql://34.155.39.142:5432/FacebookAuthDB
     username: postgres
     password: root
   jpa:

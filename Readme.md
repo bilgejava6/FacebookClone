@@ -134,3 +134,6 @@
     DİKKAT!!!! 
     ifade sonunda olan nokta (.) unutulmamalıdır. rastgele bir nokta değildir.
     docker build -t javaboost2/java7-configservergit:v.1.0 .
+    docker build -t javaboost2/java7-authservice:v.1.1 .
+    docker build -t javaboost2/java7-userservice:v.1.0 .
+    docker build -t javaboost2/java7-gatewayservice:v.1.0 .
