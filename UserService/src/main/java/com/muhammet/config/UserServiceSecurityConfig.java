@@ -10,6 +10,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class UserServiceSecurityConfig {
 
     @Bean
+    JwtTokenFilter getJwtTokenFilter() {
+        return new JwtTokenFilter();
+    }
+
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         /**
@@ -45,7 +50,7 @@ public class UserServiceSecurityConfig {
          * 1.1. ilk kısım, filtreleme işlemini yaparak jwt kontorlünü sağlayacak olan sınıfı tanımlıyoruz.
          * 1.2 filtreleme işleminde kontrol edilecek sınıf bileşenini veriyoruz.
          */
-        http.addFilterBefore(null, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(getJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
