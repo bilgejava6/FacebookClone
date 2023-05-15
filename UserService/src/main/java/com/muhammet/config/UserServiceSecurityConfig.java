@@ -2,11 +2,18 @@ package com.muhammet.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * Rest istekerlinin tümünde yetki kontrolünün aktif ewdilmesi için aşağıdaki
+ * anotasyonun eklenmesi gereklidir.
+ * @EnableGlobalMethodSecurity(prePostEnabled = true)
+ */
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class UserServiceSecurityConfig {
 
     @Bean
@@ -30,7 +37,9 @@ public class UserServiceSecurityConfig {
          *
          */
         http.authorizeRequests()
-                .antMatchers("/api/v1/userprofile/getpage","/login.html")
+                .antMatchers("/api/v1/userprofile/getpage","/login.html","/api/v1/userroles/**"
+                ,"/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html")
+
                 .permitAll()
                 .anyRequest().authenticated();
         /**
