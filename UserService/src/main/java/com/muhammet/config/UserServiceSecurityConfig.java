@@ -45,11 +45,11 @@ public class UserServiceSecurityConfig {
         /**
          * Eğer oturum açılmamış ve yetki yok ise login page yönlendirilmesini yapmak gereklidir.
          */
-        //http.formLogin();
+        // http.formLogin();
         /**
          * Form sayfası özelleştirilebilir, kendi form sayfamızı kullanmak istiyorsak
          */
-        //http.formLogin().loginPage("/login.html");
+        // http.formLogin().loginPage("/login.html");
 
         /**
          * Burada gelen isteğin filtre mekanizmasına uğramadan önce JWT ile kontrol edilmesi ve

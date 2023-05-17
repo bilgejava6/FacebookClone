@@ -37,6 +37,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         final String authHeader = request.getHeader("Authorization");
         /**
          * bearer token olup olmadığının kontrolünü yapıoyorz
+         * Bearer [TOKEN]  -> index 7>
          */
         if(authHeader != null && authHeader.startsWith("Bearer ") ){
             /**

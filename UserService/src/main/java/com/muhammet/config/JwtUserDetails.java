@@ -58,7 +58,8 @@ public class JwtUserDetails implements UserDetailsService {
                                      // bizim tarafımızdan kilitlenmiş olabilir.
                 .username(userProfile.get().getUsername())
                 .password("")
-                .authorities(authorities)
+                .authorities(authorities) // kulalnıcının sayfalarda yapacağı işlemlerin yetkileri. her end point üzerine hangi
+                                         // yetkilerin erişebileceğini belirlemek için kullanılır.
                 .build();
         return user;
     }

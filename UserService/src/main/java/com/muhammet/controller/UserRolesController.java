@@ -18,7 +18,6 @@ public class UserRolesController {
     private final UserRolesService userRolesService;
 
     @GetMapping("/save")
-    @PreAuthorize("isAnonymous()")
     public ResponseEntity<Void> save(String userprofileid,String role){
         UserRoles userRoles = UserRoles.builder()
                 .role(role)
