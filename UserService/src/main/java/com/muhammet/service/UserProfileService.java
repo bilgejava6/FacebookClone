@@ -91,4 +91,8 @@ public class UserProfileService extends ServiceManager<UserProfile,String> {
             throw new UserException(ErrorType.ERROR_NOT_FOUND_USERNAME);
         return userProfile.get();
     }
+
+    public Optional<UserProfile> findByAuthid(Long authid){
+        return repository.findOptionalByAuthid(authid);
+    }
 }
